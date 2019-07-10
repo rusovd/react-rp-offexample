@@ -5,10 +5,10 @@ import Cat from "./Cat";
 
 const MouseTracker = props => (
   <div>
-    <h1>Move the mouse around!</h1>
+    <h1>Move the mouse around! (using hook)</h1>
     <Mouse
       className={props.className}
-      render={mouse => <Cat mouse={mouse} />}
+      render={position => <Cat mouse={position} />}
     />
   </div>
 );

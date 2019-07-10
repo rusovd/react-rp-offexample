@@ -1,26 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
+import useMouse from "./useMouse";
 
-class Mouse extends Component {
-  state = { x: 0, y: 0 };
+const Mouse = props => {
+  const [position, setMousePosition] = useMouse();
 
-  handleMouseMove = e => {
-    this.setState({
-      x: e.clientX,
-      y: e.clientY
-    });
-  };
-
-  render() {
-    return (
-      <div
-        className={this.props.className}
-        style={{ height: "100vh" }}
-        onMouseMove={this.handleMouseMove}
-      >
-        {this.props.render(this.state)}
-      </div>
-    );
-  }
-}
+  return (
+    <div
+      className={props.className}
+      style={{ height: "100vh" }}
+      onMouseMove={setMousePosition}
+    >
+      {props.render(position)}
+    </div>
+  );
+};
 
 export default Mouse;
